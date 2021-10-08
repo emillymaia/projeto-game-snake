@@ -20,6 +20,16 @@ function criarCobrinha() {
     }
 }
 
+document.addEventListener('keydown', update);
+
+function update (event){
+    if(event.keyCode == 37 && direction != "right") direction = "left";
+    if(event.keyCode == 38 && direction != "down") direction = "up";
+    if(event.keyCode == 39 && direction != "left") direction = "right";
+    if(event.keyCode == 40 && direction != "up") direction = "down";
+     
+}
+
 function iniciarJogo() {
     criarBG();
     criarCobrinha(); 
@@ -27,10 +37,10 @@ function iniciarJogo() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    if(diretion == "right") snakeX += box;
-    if(diretion == "left") snakeX -= box;
-    if(diretion == "up") snakeY -= box;
-    if(diretion == "down") snakeY += box;
+    if(direction == "right") snakeX += box;
+    if(direction == "left") snakeX -= box;
+    if(direction == "up") snakeY -= box;
+    if(direction == "down") snakeY += box;
 
     snake.pop();
 
